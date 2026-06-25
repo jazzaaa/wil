@@ -11,7 +11,7 @@ image_files = [
     "photo1.jpg",
     "photo2.jpg",
     "photo3.jpg",
-    "photo4.png",
+    "photo4.jpg",
 ]
 
 texts = [
