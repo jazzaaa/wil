@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "assets/**"
+      - "photos/**"
       - "scripts/make_video.py"
 
 jobs:
