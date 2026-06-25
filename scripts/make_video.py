@@ -1,4 +1,5 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageOps, ImageDraw, ImageFont
+import pillow_avif
 from moviepy.editor import ImageClip, concatenate_videoclips
 import os
 import numpy as np
