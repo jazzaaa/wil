@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, json
+import os, json, math
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 import numpy as np
 import imageio.v2 as imageio
@@ -35,6 +35,7 @@ def find_font():
     candidates = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/Library/Fonts/Arial Bold.ttf",
         "C:/Windows/Fonts/arialbd.ttf",
     ]
     for path in candidates:
@@ -82,7 +83,14 @@ def draw_text(img, text, position, font_size, box_width):
         if line == "":
             y += int(font_size * 0.75)
             continue
-        draw.text((x, y), line, font=font, fill="white", stroke_width=5, stroke_fill="black")
+        draw.text(
+            (x, y),
+            line,
+            font=font,
+            fill="white",
+            stroke_width=5,
+            stroke_fill="black"
+        )
         bbox = draw.textbbox((x, y), line, font=font, stroke_width=5)
         y += (bbox[3] - bbox[1]) + line_gap
     return img
@@ -110,7 +118,6 @@ writer = imageio.get_writer(
     OUTPUT,
     fps=FPS,
     codec="libx264",
-    quality=8,
     macro_block_size=None,
     ffmpeg_params=["-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "20"]
 )
@@ -135,3 +142,4 @@ finally:
     writer.close()
 
 print(f"Done: {OUTPUT}")
+
