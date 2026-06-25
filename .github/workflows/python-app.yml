@@ -28,11 +28,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Render video
-        run: python render.py
+   - name: Render video
+  run: python render.py
 
-      - name: Upload MP4
-        uses: actions/upload-artifact@v4
-        with:
-          name: LGP_Reel_Output
-          path: LGP_Reel_Output.mp4
+- name: Render poster
+  run: python poster.py
+
+- name: Upload MP4
+  uses: actions/upload-artifact@v4
+  with:
+    name: LGP_Reel_Output
+    path: LGP_Reel_Output.mp4
+
+- name: Upload Poster
+  uses: actions/upload-artifact@v4
+  with:
+    name: LGP_Poster_Output
+    path: LGP_Poster_Output.png
