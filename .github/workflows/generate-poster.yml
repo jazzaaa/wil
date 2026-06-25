@@ -1,0 +1,31 @@
+name: Generate Poster
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "assets/**"
+      - "scripts/make_poster.py"
+
+jobs:
+  build-poster:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate poster
+        run: python scripts/make_poster.py
+
+      - name: Upload poster
+        uses: actions/upload-artifact@v4
+        with:
+          name: lgp-poster
+          path: output/*.png
