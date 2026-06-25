@@ -27,7 +27,7 @@ photos = [
         "duration": 3.5,
     },
     {
-        "file": "photo4.png",
+        "file": "photo4.jpg",
         "text": "Come and discover\ngames that belong\nin classrooms.\n\n1 August\nPreston City Hall",
         "duration": 4.5,
     },
