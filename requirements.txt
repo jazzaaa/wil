@@ -1,9 +1,5 @@
-Pillow==9.5.0
-moviepy==1.0.3
+pillow
 numpy
 imageio
 imageio-ffmpeg
-decorator
-tqdm
-requests
-proglog
+pillow-avif-plugin
