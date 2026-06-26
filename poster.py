@@ -1,5 +1,6 @@
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 import os
+import json
 
 W, H = 1080, 1920
 PANEL_H = H // 4
@@ -12,12 +13,13 @@ PHOTOS = [
     "photos/photo4.jpg",
 ]
 
-TEXTS = [
-    "If you're\na teacher\nlooking for\nsomething",
-    "that actually\nworks in\nthe classroom,",
-    "come and\nplay it\nfirst.",
-    "1 AUGUST\nPRESTON CITY HALL",
-]
+import json
+
+with open("texts.json", "r", encoding="utf-8") as f:
+    TEXTS = json.load(f)
+
+if len(TEXTS) != 4:
+    raise ValueError("texts.json must contain exactly 4 text items.")
 
 POSITIONS = [
     (55, 95),
